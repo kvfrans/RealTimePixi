@@ -13,7 +13,7 @@ app.get("/", function(request, response){ //root dir
     response.send("Hello!!");
 });
 
-console.log("worth");
+console.log("hi heroku");
 
 var io = require('socket.io').listen(app.listen(port));
 
