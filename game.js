@@ -4,7 +4,7 @@ var socket = io.connect('http://10.0.1.16:8000');
 var stage = new PIXI.Stage(0x66FF99);
 
 // create a renderer instance
-var renderer = PIXI.CanvasRenderer(640, 480);
+var renderer = PIXI.autoDetectRenderer(640, 480);
 
 // add the renderer view element to the DOM
 document.body.appendChild(renderer.view);
