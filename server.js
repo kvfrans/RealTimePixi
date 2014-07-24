@@ -13,6 +13,8 @@ app.get("/", function(request, response){ //root dir
     response.send("Hello!!");
 });
 
+console.log("worth");
+
 var io = require('socket.io').listen(app.listen(port));
 
 io.sockets.on('connection', function (socket) {
@@ -23,5 +25,11 @@ io.sockets.on('connection', function (socket) {
     });
     socket.on('move', function (data) {
         io.sockets.emit('someoneMoved', data);
+    });
+    socket.on('bulletmove', function (data) {
+        io.sockets.emit('someoneMovedBullet', data);
+    });
+    socket.on('bulletdestroy', function (data) {
+        io.sockets.emit('someoneDestroyedBullet', data);
     });
 });

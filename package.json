@@ -1,0 +1,24 @@
+{
+  "name": "RealTimePixi",
+  "version": "0.0.0",
+  "description": "coolio",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/BobtheChicken/RealTimePixi.git"
+  },
+  "author": "kevin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BobtheChicken/RealTimePixi/issues"
+  },
+  "homepage": "https://github.com/BobtheChicken/RealTimePixi",
+  "dependencies": {
+    "express": "^4.6.1",
+    "socket.io": "^1.0.6"
+  }
+}
