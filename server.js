@@ -15,7 +15,7 @@ app.get("/", function(request, response){ //root dir
 
 console.log("hi heroku");
 
-var io = require('socket.io').listen(app.listen(port));
+var io = require('socket.io').listen(app.listen(process.env.PORT || port));
 
 io.sockets.on('connection', function (socket) {
 
