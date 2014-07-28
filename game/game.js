@@ -1,5 +1,5 @@
 
-var socket = io.connect('http://murmuring-peak-8496.herokuapp.com/');
+var socket = io.connect('localhost:5000');
 // create an new instance of a pixi stage
 var stage = new PIXI.Stage(0x3498db,true);
 
@@ -223,15 +223,19 @@ socket.on('someoneMoved', function (data)
     //console.log("m1");
     if(hasLoaded)
     {
-        //console.log("move");
-        //console.log(data.clientnumber);
-        bunnies[data.clientnumber].position.x = data.x;
-        bunnies[data.clientnumber].position.y = data.y;
 
-        if(enemyshield)
+        if(data.clientnumber != clientnumber)
         {
-            enemyshield.position.x = data.x;
-            enemyshield.position.y = data.y;
+            //console.log("move");
+            //console.log(data.clientnumber);
+            bunnies[data.clientnumber].position.x = data.x;
+            bunnies[data.clientnumber].position.y = data.y;
+
+            if(enemyshield)
+            {
+                enemyshield.position.x = data.x;
+                enemyshield.position.y = data.y;
+            }
         }
         //console.log("move");
     }
