@@ -1,5 +1,5 @@
 
-var socket = io.connect('http://localhost:5000');
+var socket = io.connect('http://murmuring-peak-8496.herokuapp.com/:5000');
 // create an new instance of a pixi stage
 var stage = new PIXI.Stage(0x3498db,true);
 
@@ -457,6 +457,43 @@ function realWin()
     }
 }
 
+function movePlayer(direction,howMuch)
+{
+    if(direction == "left")
+    {
+        bunnies[clientnumber].position.x -= howMuch;
+    }
+    if(direction == "right")
+    {
+        bunnies[clientnumber].position.x += howMuch;
+    }
+    if(direction == "up")
+    {
+        bunnies[clientnumber].position.y += howMuch;
+    }
+    if(direction == "down")
+    {
+        bunnies[clientnumber].position.y -= howMuch;
+    }
+
+    if(bunnies[clientnumber].position.x > 975)
+    {
+        bunnies[clientnumber].position.x = 975;
+    }
+    if(bunnies[clientnumber].position.x < 25)
+    {
+        bunnies[clientnumber].position.x = 25;
+    }
+    if(bunnies[clientnumber].position.y > 575)
+    {
+        bunnies[clientnumber].position.y = 575;
+    }
+    if(bunnies[clientnumber].position.y < 25)
+    {
+        bunnies[clientnumber].position.y = 25;
+    }
+}
+
 
 function animate() {
 
@@ -474,25 +511,25 @@ function animate() {
 
     if(keysDown.left == true)
     {
-        bunnies[clientnumber].position.x -= 4;
+        movePlayer("left",4);
         hasMoved = true;
         playerdirection = "left";
     }
     if(keysDown.right == true)
     {
-        bunnies[clientnumber].position.x += 4;
+        movePlayer("right",4);
         hasMoved = true;
         playerdirection = "right";
     }
     if(keysDown.up == true)
     {
-        bunnies[clientnumber].position.y += 4;
+        movePlayer("up",4);
         hasMoved = true;
         playerdirection = "up";
     }
     if(keysDown.down == true)
     {
-        bunnies[clientnumber].position.y -= 4;
+        movePlayer("down",4);
         hasMoved = true;
         playerdirection = "down";
     }
@@ -500,22 +537,22 @@ function animate() {
 
     if(playerdirection == "left")
     {
-        bunnies[clientnumber].position.x -= dashingvalue;
+        movePlayer("left",dashingvalue);
         //hasMoved = true;
     }
     if(playerdirection == "right")
     {
-        bunnies[clientnumber].position.x += dashingvalue;
+        movePlayer("right",dashingvalue);
         //hasMoved = true;
     }
     if(playerdirection == "up")
     {
-        bunnies[clientnumber].position.y += dashingvalue;
+        movePlayer("up",dashingvalue);
         //hasMoved = true;
     }
     if(playerdirection == "down")
     {
-        bunnies[clientnumber].position.y -= dashingvalue;
+        movePlayer("down",dashingvalue);
         //hasMoved = true;
     }
 
