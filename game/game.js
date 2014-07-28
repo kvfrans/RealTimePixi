@@ -1,5 +1,5 @@
 
-var socket = io.connect('localhost:5000');
+var socket = io.connect('http://murmuring-peak-8496.herokuapp.com');
 // create an new instance of a pixi stage
 var stage = new PIXI.Stage(0x3498db,true);
 
